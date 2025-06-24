@@ -1,5 +1,9 @@
 # Sistema de Gerenciamento de Jogadores de Futebol
-
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![Postgres](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 ## 📝 Descrição do Projeto
 
 Este projeto é uma aplicação web Full-Stack desenvolvido Gustavo Henrique Olbertz e Marcelle Fatel Muraki para a disciplina de Desenvolimento WEB. O sistema permite o gerenciamento completo (CRUD - Create, Read, Update, Delete) de jogadores de futebol e seus respectivos pagamentos de mensalidade.
@@ -160,6 +164,58 @@ A API REST segue os padrões para manipulação do recurso `Jogador`.
 - **URL:** `/api/jogadores/{id}`
 - **Descrição:** Remove um jogador do banco de dados.
 - **Resposta de Sucesso (204 No Content):** Nenhuma resposta no corpo.
+
+### Recurso: Pagamento
+
+#### 1. Cadastrar um Novo Pagamento para um Jogador
+- **Método:** `POST`
+- **URL:** `/api/jogadores/{codJogador}/pagamentos`
+- **Descrição:** Registra um novo pagamento para um jogador específico.
+- **Corpo da Requisição (Request Body):**
+  ```json
+  {
+      "ano": 2025,
+      "mes": 6,
+      "valor": 150.00
+  }
+  ```
+- **Resposta de Sucesso (201 Created):** O objeto do pagamento criado.
+
+#### 2. Listar Pagamentos de um Jogador
+- **Método:** `GET`
+- **URL:** `/api/jogadores/{codJogador}/pagamentos`
+- **Descrição:** Retorna uma lista com todos os pagamentos de um jogador específico.
+- **Resposta de Sucesso (200 OK):**
+  ```json
+  [
+    {
+      "id": 1,
+      "ano": 2025,
+      "mes": 6,
+      "valor": 150.00
+    }
+  ]
+  ```
+## 🎯 Objetivos de Aprendizagem
+
+Este projeto foi desenvolvido com o intuito de aplicar e consolidar os seguintes conhecimentos:
+
+- Aplicação de conceitos da arquitetura MVC (Model-View-Controller).
+- Desenvolvimento de uma API RESTful utilizando o framework Spring Boot.
+- Mapeamento objeto-relacional (ORM) com Spring Data JPA e Hibernate.
+- Construção de uma Single Page Application (SPA) reativa com a biblioteca ReactJS.
+- Gerenciamento de estado no frontend com React Hooks (`useState`, `useEffect`).
+- Comunicação assíncrona entre frontend e backend via requisições HTTP (com Axios).
+
+## 🔮 Melhorias Futuras
+
+Embora o projeto cumpra os requisitos propostos, algumas melhorias poderiam ser implementadas em futuras versões:
+
+- [ ] Implementar o CRUD completo para a entidade de Pagamentos (Update e Delete).
+- [ ] Adicionar paginação na API para a listagem de jogadores, melhorando a performance com grandes volumes de dados.
+- [ ] Implementar um sistema de autenticação e autorização (ex: com JWT) para proteger os endpoints da API.
+- [ ] Refatorar o frontend em componentes menores e mais especializados (ex: `JogadorForm`, `JogadorList`, `PagamentoItem`).
+- [ ] Adicionar um tratamento de erros e estados de carregamento (loading spinners) mais robusto na interface.
 
 ---
 **Autores:** [Gustavo Henrique Olbertz e Marcelle Fatel Muraki]
