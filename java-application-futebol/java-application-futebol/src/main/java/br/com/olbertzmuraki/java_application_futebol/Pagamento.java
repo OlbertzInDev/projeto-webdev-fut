@@ -2,7 +2,9 @@ package br.com.olbertzmuraki.java_application_futebol;
 
 import java.math.BigDecimal; // Para valores monetários
 
-import jakarta.persistence.Column; 
+import com.fasterxml.jackson.annotation.JsonBackReference; 
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +35,7 @@ public class Pagamento {
     // Relacionamento: Muitos Pagamentos para Um Jogador
     @ManyToOne(fetch = FetchType.LAZY) 
     @JoinColumn(name = "cod_jogador", nullable = false) 
+    @JsonBackReference
     private Jogador jogador;
 
     // Construtores

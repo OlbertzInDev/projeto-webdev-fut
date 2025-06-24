@@ -28,8 +28,6 @@ public class JogadorController {
 
     @PostMapping
     public ResponseEntity<Jogador> criarJogador(@RequestBody Jogador jogador) {
-        // Para um projeto real, considere usar um DTO (ex: JogadorRequestDTO) aqui
-        // e converter para a entidade Jogador no serviço ou controlador.
         Jogador novoJogador = jogadorService.criarJogador(jogador);
         return new ResponseEntity<>(novoJogador, HttpStatus.CREATED);
     }
@@ -37,7 +35,6 @@ public class JogadorController {
     @GetMapping
     public ResponseEntity<List<Jogador>> listarTodosJogadores() {
         List<Jogador> jogadores = jogadorService.listarTodosJogadores();
-        // Para um projeto real, considere mapear para uma lista de JogadorResponseDTO.
         return ResponseEntity.ok(jogadores);
     }
 
